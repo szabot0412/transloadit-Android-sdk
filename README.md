@@ -15,6 +15,7 @@ It allows you to easily use Transloadit services in your Android applications.
 - "TransloaditLib" - Contains the SDK source (Android project)
 - "TransloaditLibTest" - Contains unit tests (Android test project)
 - "bin" - compiled jar file
+- "doc" - javadoc
 
 #Examples#
 

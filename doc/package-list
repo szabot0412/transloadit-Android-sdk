@@ -1,0 +1,8 @@
+hu.szabot.transloadit
+hu.szabot.transloadit.assembly
+hu.szabot.transloadit.assembly.exceptions
+hu.szabot.transloadit.exceptions
+hu.szabot.transloadit.executor
+hu.szabot.transloadit.log
+hu.szabot.transloadit.parser
+hu.szabot.transloadit.utils
