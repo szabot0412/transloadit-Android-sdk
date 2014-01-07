@@ -1,4 +1,4 @@
-﻿package hu.szabot.transloadit.assembly;
+package hu.szabot.transloadit.assembly;
 
 import java.util.HashMap;
 

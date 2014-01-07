@@ -1,4 +1,4 @@
-﻿package hu.szabot.transloadit.assembly.exceptions;
+package hu.szabot.transloadit.assembly.exceptions;
 
 /**Thrown when a field key is already defined*/
 @SuppressWarnings("serial")

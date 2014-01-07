@@ -1,4 +1,4 @@
-﻿package hu.szabot.transloadit.assembly.exceptions;
+package hu.szabot.transloadit.assembly.exceptions;
 
 /**Thrown when the specified field name is invalid*/
 @SuppressWarnings("serial")

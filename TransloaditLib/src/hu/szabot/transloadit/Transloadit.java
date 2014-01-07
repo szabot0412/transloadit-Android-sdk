@@ -1,4 +1,4 @@
-﻿package hu.szabot.transloadit;
+package hu.szabot.transloadit;
 
 import hu.szabot.transloadit.IApiRequest.RequestMethod;
 import hu.szabot.transloadit.assembly.IAssemblyBuilder;

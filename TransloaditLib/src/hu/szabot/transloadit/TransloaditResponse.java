@@ -1,4 +1,4 @@
-﻿package hu.szabot.transloadit;
+package hu.szabot.transloadit;
 
 import hu.szabot.transloadit.exceptions.NotParseableException;
 import hu.szabot.transloadit.parser.IResponseParser;

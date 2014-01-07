@@ -1,4 +1,4 @@
-﻿package hu.szabot.transloadit.assembly;
+package hu.szabot.transloadit.assembly;
 
 import hu.szabot.transloadit.ApiData;
 import hu.szabot.transloadit.assembly.exceptions.AlreadyDefinedKeyException;

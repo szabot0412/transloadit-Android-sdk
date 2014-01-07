@@ -1,4 +1,4 @@
-﻿package hu.szabot.transloadit.utils;
+package hu.szabot.transloadit.utils;
 
 import java.io.UnsupportedEncodingException;
 import java.security.InvalidKeyException;

@@ -1,4 +1,4 @@
-﻿package hu.szabot.transloadit;
+package hu.szabot.transloadit;
 
 import hu.szabot.transloadit.executor.DefaultHttpExecutor;
 import hu.szabot.transloadit.executor.ParsedApiData;

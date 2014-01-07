@@ -1,4 +1,4 @@
-﻿package hu.szabot.transloadit.log;
+package hu.szabot.transloadit.log;
 
 import android.util.Log;
 

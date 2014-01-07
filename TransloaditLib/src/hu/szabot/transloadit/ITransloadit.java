@@ -1,4 +1,4 @@
-﻿package hu.szabot.transloadit;
+package hu.szabot.transloadit;
 
 import java.io.IOException;
 import java.net.URISyntaxException;
