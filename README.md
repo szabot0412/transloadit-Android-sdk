@@ -332,7 +332,7 @@ The SDK provides you the possibility to log information and errors. You can use 
 
 > **Note: ** `logError(...)` method has more parameter definition
 
-##3. Extend Transloadit .NET API##
+##3. Extend Transloadit Android API##
 
 The SDK is able to be extended. You can use the interfaces to create your own implementations and you can extend the pre-created classes.
 

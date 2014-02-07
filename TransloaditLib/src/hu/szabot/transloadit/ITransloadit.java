@@ -48,11 +48,5 @@ public interface ITransloadit
      * @param secret The secret key, or NULL to not use signature.
      */
     public void useSignature(String secret);
-    
-    /**
-     * Use bored instance or not.
-     * @param useBoredInstance True if use bored instance, false to not.
-     */
-    public void useBoredInstance(boolean useBoredInstance);
-    
+ 
 }

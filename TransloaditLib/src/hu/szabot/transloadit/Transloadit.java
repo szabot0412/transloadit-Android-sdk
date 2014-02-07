@@ -28,14 +28,6 @@ public class Transloadit implements ITransloadit
     {
     	this.secret=secret;
     }
-  
-    /** Use bored instance flag*/
-    private boolean useBoredInstance=true;
-    
-    public void useBoredInstance(boolean useBoredInstance) {
-		this.useBoredInstance = useBoredInstance;
-	}
-    
     
     /**
      * Creates a new Transloadit object with the given key
@@ -94,6 +86,50 @@ public class Transloadit implements ITransloadit
         return null;
     }
 
+    private String getBoredInstance()
+    {
+        TransloaditRequest request = request();
+        
+    	request.setMethod(RequestMethod.GET);
+        
+        try {
+			request.setPath(TransloaditRequest.BORED_INSTANCE_PATH);
+		} catch (URISyntaxException e) 
+		{
+			TransloaditLogger.logError(getClass(), e,"Default bored instance path not working");
+		}
+
+        TransloaditResponse boredInstance;
+		
+        try {
+			boredInstance = (TransloaditResponse)requestAndExecute(request);
+		
+			 if (boredInstance.isSuccess())
+		        {
+		           
+					return ((String)boredInstance.getData().get("api2_host"));
+					
+		        }else
+		        {
+		        	TransloaditLogger.logError(getClass(),"Bored instance host is invalid using default path %s",(String)boredInstance.getData().get("api2_host"));
+					
+					return TransloaditRequest.DEFAULT_HOST;
+		        }
+			 
+		} catch (IOException e) 
+		{
+			e.printStackTrace();
+			
+			TransloaditLogger.logError(getClass(),e,"Bored instance host is invalid using default path");
+			
+			return TransloaditRequest.DEFAULT_HOST;
+		}
+
+       
+    }
+    
+    
+    
     public TransloaditResponse invokeAssembly(IAssemblyBuilder assembly) throws IOException
     {
     	
@@ -101,36 +137,22 @@ public class Transloadit implements ITransloadit
         
         assembly.setAuthKey(key);
 
-        if (useBoredInstance)
-        {
-            request.setMethod(RequestMethod.GET);
-            
-            try {
-				request.setPath(TransloaditRequest.BORED_INSTANCE_PATH);
+        try {
+        	
+			request.setHost(getBoredInstance());
+			
+		} catch (URISyntaxException e2) 
+		{
+			try {
+				
+				request.setHost(TransloaditRequest.DEFAULT_HOST);
+				
 			} catch (URISyntaxException e) 
 			{
-				TransloaditLogger.logError(getClass(), e,"Default bored instance path not working");
+				TransloaditLogger.logError(getClass(), e,"Default host invalid");
 			}
-
-            TransloaditResponse boredInstance = (TransloaditResponse)requestAndExecute(request);
-
-            if (boredInstance.isSuccess())
-            {
-                try {
-					request.setHost((String)boredInstance.getData().get("api2_host"));
-				} catch (URISyntaxException e) 
-				{
-					TransloaditLogger.logError(getClass(), e,"Bored instance host is invalid using default path %s",(String)boredInstance.getData().get("api2_host"));
-					
-					try {
-						request.setHost(TransloaditRequest.DEFAULT_HOST);
-					} catch (URISyntaxException e1) 
-					{
-						TransloaditLogger.logError(getClass(), e,"Default host invalid");
-					}
-				}
-            }
-        }
+			
+		}
 
         request.setMethod(RequestMethod.POST);
         
